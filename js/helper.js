@@ -1,50 +1,35 @@
-/*
-
-This file contains all of the code running in the background that makes resumeBuilder.js possible. We call these helper functions because they support your code in this course.
-
-Don't worry, you'll learn what's going on in this file throughout the course. You won't need to make any changes to it until you start experimenting with inserting a Google Map in Problem Set 3.
-
-Cameron Pittman
-*/
-
-
-/*
-These are HTML strings. As part of the course, you'll be using JavaScript functions
-replace the %data% placeholder text you see in them.
-*/
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
-var HTMLheaderRole = '<span>%data%</span><hr/>';
+var HTMLheaderRole = '%data%<hr/>';
 
-var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
-var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';
-var HTMLemail = '<li class="flex-item"><span class="orange-text">email</span><span class="white-text">%data%</span></li>';
-var HTMLtwitter = '<li class="flex-item"><span class="orange-text">twitter</span><span class="white-text">%data%</span></li>';
-var HTMLgithub = '<li class="flex-item"><span class="orange-text">github</span><span class="white-text">%data%</span></li>';
-var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></li>';
-var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</span><span class="white-text">%data%</span></li>';
+var HTMLmobile = '<li class="flex-item fontawesome-mobile-phone"><a href="tel:%data%" class="contact">%data%</a></li>';
+var HTMLemail = '<li class="flex-item fontawesome-envelope"><a href="mailto:%data%" class="contact">%data%</a></li>';
+var HTMLtwitter = '<li class="flex-item fontawesome-twitter"><a href="http://www.twitter.com/%data%" class="contact">%data%</a></li>';
+var HTMLgithub = '<li class="flex-item fontawesome-github"><a href="https://github.com/%data%" class="contact">%data%</a></li>';
+var HTMLlinkedin = '<li class="flex-item fontawesome-linkedin-sign"><a href="https://www.linkedin.com/in/%data%" class="contact">LinkedIn</a></li>';
+var HTMLlocation = '<li class="flex-item fontawesome-globe"><a href="http://maps.google.com/maps?q=%data%" class="contact">%data%</a></li>';
 
-var HTMLbioPic = '<img src="%data%" class="biopic">';
-var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
+var HTMLbioPic = '<img src="%data%" class="biopic" alt="Resume Profile Pic">';
+var HTMLwelcomeMsg = '<div class="welcome-message">%data%</div>';
 
 var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-box"></ul>';
-var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
+var HTMLskills = '<li class="flex-item skills">%data%</li>';
 
 var HTMLworkStart = '<div class="work-entry"></div>';
 var HTMLworkEmployer = '<a href="#">%data%';
-var HTMLworkTitle = ' - %data%</a>';
+var HTMLworkTitle = ' - %data%</a><br>';
 var HTMLworkDates = '<div class="date-text">%data%</div>';
 var HTMLworkLocation = '<div class="location-text">%data%</div>';
 var HTMLworkDescription = '<p><br>%data%</p>';
 
 var HTMLprojectStart = '<div class="project-entry"></div>';
-var HTMLprojectTitle = '<a href="#">%data%</a>';
+var HTMLprojectTitle = '<a href="#">%data%</a><br>';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
 var HTMLprojectDescription = '<p><br>%data%</p>';
 var HTMLprojectImage = '<img src="%data%">';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';
 var HTMLschoolName = '<a href="#">%data%';
-var HTMLschoolDegree = ' -- %data%</a>';
+var HTMLschoolDegree = ' -- %data%</a><br>';
 var HTMLschoolDates = '<div class="date-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text">%data%</div>';
 var HTMLschoolMajor = '<em><br>Major: %data%</em>';
@@ -126,7 +111,9 @@ function initializeMap() {
     var locations = [];
 
     // adds the single location property from bio to the locations array
-    locations.push(bio.contacts.location);
+    for (var loc in bio.contacts.locations) {
+      locations.push(bio.contacts.locations[loc]);
+    }
 
     // iterates through school locations and appends each location to
     // the locations array
@@ -171,8 +158,13 @@ function initializeMap() {
     });
 
     // hmmmm, I wonder what this is about...
+    google.maps.event.addListener(map, 'click', function() {
+      infoWindow.close();
+    });
+
     google.maps.event.addListener(marker, 'click', function() {
-      // your code goes here!
+      infoWindow.close();
+      infoWindow.open(map, marker);    
     });
 
     // this is where the pin actually gets added to the map.
@@ -235,11 +227,11 @@ Uncomment the code below when you're ready to implement a Google Map!
 */
 
 // Calls the initializeMap() function when the page loads
-//window.addEventListener('load', initializeMap);
+window.addEventListener('load', initializeMap);
 
 // Vanilla JS way to listen for resizing of the window
 // and adjust map bounds
-//window.addEventListener('resize', function(e) {
+window.addEventListener('resize', function(e) {
   //Make sure the map bounds get updated on page resize
-//  map.fitBounds(mapBounds);
-//});
+map.fitBounds(mapBounds);
+});
