@@ -1,0 +1,23 @@
+{
+  "name": "FEND Project 2",
+  "homepage": "https://github.com/Demiror/frontend-nanodegree-resume",
+  "authors": [
+    "Zoltan Albert <znalbert@gmail.com>"
+  ],
+  "description": "JavaScripted Resume",
+  "main": "index.html",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "iron-collapse": "PolymerElements/iron-collapse#~1.0.4",
+    "polymer": "~1.2.3"
+  }
+}

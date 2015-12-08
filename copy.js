@@ -42,7 +42,7 @@ bio.display = function(){
 		  $("#skills").append(formattedSkill);
 	  }
   }
-}
+};
 
 bio.display();
 
@@ -119,7 +119,7 @@ var projects = {
 			"images" : "none"
 		}
 	]
-};
+}
 
 projects.display = function(){
 	if (projects.project.length > 0){
@@ -134,7 +134,7 @@ projects.display = function(){
 			$(".project-entry:last").append(formattedProjectDescription);
 		}
 	}
-}
+};
 
 projects.display();
 
@@ -158,7 +158,7 @@ var education = {
     },
     {
       "title" : "Learn to Program: The Fundamentals",
-      "school" : "Coursera - University of Toronto",
+      "school" : "Coursera:  University of Toronto",
       "dates" : "Dec 2012",
       "url" : "https://www.coursera.org/course/programming1"
     }
@@ -181,23 +181,25 @@ education.display = function(){
       $(".education-entry:last").append(formattedSchoolMajor);
     }
   }
-  if (education.onlineCourses.length > 0){
+
+  if (education.onlineCourses.length) > 0){
     $("#education").append(HTMLonlineClasses);
     for (course in education.onlineCourses){
-      var formattedOnlineURL = HTMLonlineURL.replace("%data%", education.onlineCourses[course].url);
       var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[course].title);
       var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[course].school);
       var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[course].dates);
-
-      $("#education").append(HTMLschoolStart);
-      $(".education-entry:last").append(formattedOnlineURL + formattedOnlineTitle);
+      var formattedOnlineURL = HTMLonlineURL.replace("%data%", education.onlineCourses[course].URL);
+ 
+      $(".education-entry:last").append(formattedOnlineTitle);
       $(".education-entry:last").append(formattedOnlineSchool);
       $(".education-entry:last").append(formattedOnlineDates);
+      $(".education-entry:last").append(formattedOnlineURL);
     }
   }
-}
+};
 
 education.display();
 
-$("#main").append(internationalizeButton);
+$("#main").append(internationalizeButton)
 $("#mapDiv").append(googleMap);
+

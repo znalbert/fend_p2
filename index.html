@@ -9,6 +9,9 @@
   <script src="js/jQuery.js"></script>
   <script src="js/helper.js"></script>
   <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
+  <script src="/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="/bower_components/iron-collapse/iron-collapse.html">
+
   <meta name="viewport" content="width=device-width">
 </head>
 <body>
@@ -17,15 +20,33 @@
       <ul id="topContacts" class="flex-box"></ul>
     </div>
     <div style="clear: both;"></div>
-    <div id="workExperience" class="gray">
-      <h2>Work Experience</h2>
-    </div>
-    <div id="projects">
-      <h2>Projects</h2>
-    </div>
-    <div id="education" class="gray">
-      <h2>Education</h2>
-    </div>
+    
+
+      <!-- Work -->
+      <button class="heading" aria-expanded$="[[isExpanded(openedwork)]]" aria-controls="work-container" onclick="toggle('#work-container')"><h2>Work Experience</h2></button>
+    
+      <iron-collapse id="work-container" tabindex="0" opened="{{openedwork}}">
+        <div id="workExperience" class="gray"></div>
+      </iron-collapse>
+
+      <!-- Projects -->
+
+      <button class="heading" aria-expanded$="[[isExpanded(openedprojects)]]" aria-controls="projects-container" onclick="toggle('#projects-container')"><h2>Projects</h2></button>
+
+      <iron-collapse id="projects-container" tabindex="0" opened="{{openedprojects}}">
+        <div id="projects"></div>
+      </iron-collapse>
+      
+      <!-- Education -->
+
+       <button class="heading" aria-expanded$="[[isExpanded(openededuction)]]" aria-controls="education-container" onclick="toggle('#education-container')"><h2>Education</h2></button>
+
+      <iron-collapse id="education-container" tabindex="0" opened="{{openededucation}}">
+        <div id="education"></div>
+      </iron-collapse>
+
+    <!-- Map -->
+
     <div id="mapDiv">
       <h2>Where I've Lived and Worked</h2>
     </div>
@@ -37,7 +58,17 @@
   </div>
 
   <script src="js/resumeBuilder.js"></script>
+  <script>
 
+  function toggle(selector) {
+    document.querySelector(selector).toggle();
+  }
+
+  document.querySelector('template[is=dom-bind]').isExpanded = function(opened) {
+    return String(opened);
+  };
+
+  </script>
   <script type="text/javascript">
     if(document.getElementsByClassName('flex-item').length === 0) {
       document.getElementById('topContacts').style.display = 'none';
