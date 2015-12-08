@@ -8,7 +8,6 @@
   padding: 5px;
 }
 
-
 body,
 div,
 ul,
@@ -25,19 +24,6 @@ h6 {
   font-family: "Roboto", sans-serif;
 }
 
-/*
-.clear-fix {
-  overflow: auto;
-}
-*/
-
-.education-entry,
-.work-entry,
-.project-entry {
-  padding: 0px 5% 15px;
-
-}
-
 #name {
   font-size: 40px;
   color: #f5a623;
@@ -45,15 +31,20 @@ h6 {
   display: inline;
 }
 
+.role {
+  padding: 0;
+}
+
 h2 {
+  padding: 10px 5%;
   font-weight: bold;
   font-size: 24px;
   color: #999;
   line-height: 29px;
-  padding: 10px;
 }
 
 h3 {
+  padding: 10px 5% 0;
   font-style: italic;
   font-size: 20px;
   color: #000;
@@ -67,17 +58,7 @@ h4 {
   line-height: 17px;
 }
 
-
-h2,
-h3,
-h4,
-h5 {
-  padding:10px 5%;
-
-}
-
 button {
-  padding: 10px 15px;
   margin: 20px 0 0 0;
   background-color: #f3f3f3;
   border: 1px solid #dedede;
@@ -95,15 +76,19 @@ button {
   color: #fff;
 }
 
+.education-entry,
+.work-entry,
+.project-entry {
+  padding: 10px 5%;
+  overflow: hidden;
+}
+
 .date-text {
   font-style: italic;
   font-size: 14px;
   color: #999;
-  line-height: 16px;
-}
-
-.work-date {
   float: left;
+  line-height: 16px;
 }
 
 .location-text {
@@ -121,17 +106,15 @@ p {
   line-height: 21px;
 }
 
-
 a {
   color: #1199c3;
   text-decoration: none;
 }
 
 .welcome-message {
-  font-style: italic;
   font-size: 18px;
   color: #f3f3f3;
-  line-height: 28px;
+  margin: 5px 0 0 0;
 }
 
 #skills-h3 {
@@ -139,8 +122,9 @@ a {
   display: none;
 }
 
-.orange {
+.gold {
   background-color: #f5ae23;
+  color: #001f3f;
 }
 
 .gray {
@@ -149,12 +133,7 @@ a {
   clear:both;
 }
 
-.dark-gray {
-  background-color: #4a4a4a;
-}
-
-/* TODO: Replace with image later */
-#header {
+.navy-bg {
   background-color: #001f3f;
 }
 
@@ -184,10 +163,13 @@ ul {
   display: none;
 }
 
-
-
 #lets-connect {
   text-align: center;
+}
+
+.internationalize {
+  text-align: center;
+  margin: 0;
 }
 
 /* Media queries to handle various device widths */

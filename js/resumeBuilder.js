@@ -1,7 +1,7 @@
 var bio = {
 	"name" : "Zoltan Albert",
 	"role" : "Front-End Web Developer",
-	"welcomeMessage" : "Hiya",	
+	"welcomeMessage" : "Taught English in Budapest, Chinese linguist in Hawaii, now sporting a beard in Tennesee, and looking forward to the next adventure.",	
 	"contacts" : {
 		"mobile" : "202-455-8679",
 		"email" : "znalbert@gmail.com",
@@ -18,25 +18,14 @@ bio.display = function(){
   var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
   var formattedName = HTMLheaderName.replace("%data%", bio.name);
   var formattedPic = HTMLbioPic.replace("%data%", bio.bioPic);
-  var formattedMobile = HTMLmobile.replace(/%data%/g, bio.contacts.mobile); 
-  var formattedEmail = HTMLemail.replace(/%data%/g, bio.contacts.email);
-  // var formattedTwitter = HTMLgithub.replace(/%data%/g, bio.contacts.twitter);
-  var formattedGithub = HTMLgithub.replace(/%data%/g, bio.contacts.github);
-  var formattedLinkedIn = HTMLlinkedin.replace("%data%", bio.contacts.linkedin);
-  var formattedLocation = HTMLlocation.replace(/%data%/g, bio.contacts.locations[0]);
+  var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 
-  $("#header").prepend(formattedName + formattedRole);
-  $("#header").append(formattedPic);
-  $("#topContacts").append(formattedMobile);
-  $("#topContacts").append(formattedEmail);
-  // $("#topContacts").append(formattedTwitter);
-  $("#topContacts").append(formattedGithub);
-  $("#topContacts").append(formattedLinkedIn);
-  $("#topContacts").append(formattedLocation);
-
+  $("#bio").prepend(formattedName + formattedRole);
+  $("#bio").append(formattedPic);
+  $("#bio").append(formattedWelcomeMessage);
 
   if(bio.skills.length > 0){
-	  $("#header").append(HTMLskillsStart);
+	  $("#bio").append(HTMLskillsStart);
 	  for (skill in bio.skills){
 		  var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
 		  $("#skills").append(formattedSkill);
@@ -44,7 +33,23 @@ bio.display = function(){
   }
 }
 
+bio.contacts.display = function(section){
+  var formattedMobile = HTMLmobile.replace(/%data%/g, bio.contacts.mobile); 
+  var formattedEmail = HTMLemail.replace(/%data%/g, bio.contacts.email);
+  var formattedGithub = HTMLgithub.replace(/%data%/g, bio.contacts.github);
+  var formattedLinkedIn = HTMLlinkedin.replace("%data%", bio.contacts.linkedin);
+  var formattedLocation = HTMLlocation.replace(/%data%/g, bio.contacts.locations[0]);
+
+  $(section).append(formattedMobile);
+  $(section).append(formattedEmail);
+  $(section).append(formattedGithub);
+  $(section).append(formattedLinkedIn);
+  $(section).append(formattedLocation);
+}
+
 bio.display();
+bio.contacts.display("#topContacts");
+bio.contacts.display("#footerContacts");
 
 var work = {
 	"jobs" : [
@@ -53,7 +58,7 @@ var work = {
 			"title" : "Cryptologic Linguist",
 			"dates" : "Feb '04 - Feb '10",
 			"location" : "Kunia, HI",
-			"description" : "While in the Navy I served a Chinese linguist for the National Security Agency/Central Security Service Hawaii.  During this time I started by working in operations, but in under a year had moved into the role of Training Manager for my department of over 500.  While in the role of Training Manager I developed a database to track our training program and trainee progress. From there I transitioned with my database to the role of Training Standards and Evaluations Manager for the Hawaii Signals Intelligence Directorate's 1,300 personnel.  During this time I was certified as an Adjunct Trainer with the NSA where I developed and delivered training on HTML and CSS to Joint Service personnel and NSA civilians.  I finished my tour in Hawaii with being awarded a Joint Service Commendation medal."
+			"description" : "While in the Navy I served a Chinese linguist for the National Security Agency/Central Security Service Hawaii.  During this time I maintained a clearance for Top Secret/Sensitive Compartmented Information and started by working in operations. In under a year moved into the role of Training Manager for my department of over 500.  While in the role of Training Manager I developed a database to track our training program and trainee progress. From there I transitioned with my database to the role of Training Standards and Evaluations Manager for the Hawaii Signals Intelligence Directorate's 1,300 personnel.  During this time I was certified as an Adjunct Trainer with the NSA where I developed and delivered training on HTML and CSS to Joint Service personnel and NSA civilians.  I finished my tour in Hawaii with being awarded a Joint Service Commendation medal."
 		},
 		{
 			"employer" : "Amazon.com",
@@ -199,5 +204,14 @@ education.display = function(){
 
 education.display();
 
-$("#main").append(internationalizeButton);
+function inName() {
+  names = bio.name.trim().split(" ");
+  console.log(names[1], names[0]);
+  names[1] = names[1].toUpperCase();
+  names[0] = names[0].slice(0, 1).toUpperCase() + names[0].slice(1).toLowerCase();
+
+  return names[0] + " " + names[1];
+}
+
+$("main").append(internationalizeButton);
 $("#mapDiv").append(googleMap);

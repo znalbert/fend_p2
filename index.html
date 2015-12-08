@@ -1,74 +1,69 @@
 <!DOCTYPE html>
 <head>
   <meta charset="utf-8">
-
-  <title>Resume</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="css/style.css" rel="stylesheet">
-
+  <link rel="import" href="/bower_components/iron-collapse/iron-collapse.html">
   <script src="js/jQuery.js"></script>
   <script src="js/helper.js"></script>
   <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
   <script src="/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
-  <link rel="import" href="/bower_components/iron-collapse/iron-collapse.html">
-
-  <meta name="viewport" content="width=device-width">
+  <title>Resume</title>
 </head>
+
 <body>
-  <div id="main">
-    <div id="header" class="center-content clear-fix">
+  <main>
+    <header id="bio" class="center-content navy-bg">
       <ul id="topContacts" class="flex-box"></ul>
-    </div>
-    <div style="clear: both;"></div>
-    
+    </header>
 
       <!-- Work -->
-      <button class="heading" aria-expanded$="[[isExpanded(openedwork)]]" aria-controls="work-container" onclick="toggle('#work-container')"><h2>Work Experience</h2></button>
+      <button class="heading" onclick="toggle('#work-container')"><h2>Work Experience</h2></button>
     
-      <iron-collapse id="work-container" tabindex="0" opened="{{openedwork}}">
-        <div id="workExperience" class="gray"></div>
+      <iron-collapse id="work-container" tabindex="0">
+        <section id="workExperience"></section>
       </iron-collapse>
 
       <!-- Projects -->
 
-      <button class="heading" aria-expanded$="[[isExpanded(openedprojects)]]" aria-controls="projects-container" onclick="toggle('#projects-container')"><h2>Projects</h2></button>
+      <button class="heading" onclick="toggle('#projects-container')"><h2>Projects</h2></button>
 
-      <iron-collapse id="projects-container" tabindex="0" opened="{{openedprojects}}">
-        <div id="projects"></div>
+      <iron-collapse id="projects-container" tabindex="0">
+        <section id="projects"></section>
       </iron-collapse>
       
       <!-- Education -->
 
-       <button class="heading" aria-expanded$="[[isExpanded(openededuction)]]" aria-controls="education-container" onclick="toggle('#education-container')"><h2>Education</h2></button>
+      <button class="heading" onclick="toggle('#education-container')"><h2>Education</h2></button>
 
-      <iron-collapse id="education-container" tabindex="0" opened="{{openededucation}}">
-        <div id="education"></div>
+      <iron-collapse id="education-container" tabindex="0">
+        <section id="education"></section>
       </iron-collapse>
 
     <!-- Map -->
 
-    <div id="mapDiv">
+    <section id="mapDiv">
       <h2>Where I've Lived and Worked</h2>
-    </div>
-    <div id="lets-connect" class="dark-gray">
-      <h2 class="orange center-text">Let's Connect</h2>
+    </section>
+
+    <footer id="lets-connect" class="navy-bg">
+      <h2 class="gold center-text">Let's Connect</h2>
         <ul id="footerContacts" class="flex-box">
-      </ul>
-    </div>
-  </div>
+        </ul>
+    </footer>
+  </main>
 
   <script src="js/resumeBuilder.js"></script>
-  <script>
 
+  <script>
   function toggle(selector) {
     document.querySelector(selector).toggle();
-  }
-
-  document.querySelector('template[is=dom-bind]').isExpanded = function(opened) {
-    return String(opened);
   };
-
+  toggle('#work-container');
+  toggle('#projects-container');
+  toggle('#education-container');
   </script>
+
   <script type="text/javascript">
     if(document.getElementsByClassName('flex-item').length === 0) {
       document.getElementById('topContacts').style.display = 'none';

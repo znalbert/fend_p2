@@ -1,5 +1,5 @@
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
-var HTMLheaderRole = '%data%<hr/>';
+var HTMLheaderRole = '<h2 class="role">%data%</h2><hr/>';
 
 var HTMLmobile = '<li class="flex-item fontawesome-mobile-phone"><a href="tel:%data%" class="contact">%data%</a></li>';
 var HTMLemail = '<li class="flex-item fontawesome-envelope"><a href="mailto:%data%" class="contact">%data%</a></li>';
@@ -17,7 +17,7 @@ var HTMLskills = '<li class="flex-item skills">%data%</li>';
 var HTMLworkStart = '<div class="work-entry"></div>';
 var HTMLworkEmployer = '<a href="#">%data%';
 var HTMLworkTitle = ' - %data%</a><br>';
-var HTMLworkDates = '<div class="date-text work-date">%data%</div>';
+var HTMLworkDates = '<div class="date-text">%data%</div>';
 var HTMLworkLocation = '<div class="location-text">%data%</div>';
 var HTMLworkDescription = '<p><br>%data%</p>';
 
@@ -40,23 +40,19 @@ var HTMLonlineTitle = '%data%</a>';
 var HTMLonlineSchool = '<div class="online-school">%data%</div>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
 
-var internationalizeButton = '<button>Internationalize</button>';
+var internationalizeButton = '<button class="internationalize">Internationalize</button>';
 var googleMap = '<div id="map"></div>';
 
 
-/*
-The International Name challenge in Lesson 2 where you'll create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
-*/
+// Capitalizes last name
 $(document).ready(function() {
-  $('button').click(function() {
+  $('.internationalize').click(function() {
     var iName = inName() || function(){};
     $('#name').html(iName);  
   });
 });
 
-/*
-The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
-*/
+// Print click locations to the console
 clickLocations = [];
 
 function logClicks(x,y) {
@@ -77,18 +73,12 @@ $(document).click(function(loc) {
 });
 
 
+// Add map for places lived and worked
+// https://developers.google.com/maps/documentation/javascript/reference
 
-/*
-This is the fun part. Here's where we generate the custom Google Map for the website.
-See the documentation below for more details.
-https://developers.google.com/maps/documentation/javascript/reference
-*/
 var map;    // declares a global map variable
 
 
-/*
-Start here! initializeMap() is called when page is loaded.
-*/
 function initializeMap() {
 
   var locations;
@@ -160,7 +150,6 @@ function initializeMap() {
       content: name
     });
 
-    // hmmmm, I wonder what this is about...
     google.maps.event.addListener(map, 'click', function() {
       infoWindow.close();
     });
@@ -224,10 +213,6 @@ function initializeMap() {
   pinPoster(locations);
 
 }
-
-/*
-Uncomment the code below when you're ready to implement a Google Map!
-*/
 
 // Calls the initializeMap() function when the page loads
 window.addEventListener('load', initializeMap);
