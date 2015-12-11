@@ -225,10 +225,11 @@ education.display = function(){
       var OnlineDates = HTMLonlineDates.replace("%data%", course.dates);
 
       $("#education").append(HTMLschoolStart);
-      $(".education-entry:last").append(OnlineURL + OnlineTitle, OnlineSchool, OnlineDates);
+      $(".education-entry:last").append(OnlineURL + OnlineTitle, OnlineSchool,
+        OnlineDates);
     });
   }
-}
+};
 
 education.display();
 
@@ -236,7 +237,8 @@ function inName() {
   names = bio.name.trim().split(" ");
   console.log(names[1], names[0]);
   names[1] = names[1].toUpperCase();
-  names[0] = names[0].slice(0, 1).toUpperCase() + names[0].slice(1).toLowerCase();
+  names[0] = names[0].slice(0, 1).toUpperCase() +
+    names[0].slice(1).toLowerCase();
 
   return names[0] + " " + names[1];
 }
