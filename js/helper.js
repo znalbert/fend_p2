@@ -103,10 +103,11 @@ function initializeMap() {
     // initializes an empty array
     var locations = [];
 
+    // add Budapest, Hungary because I used to live and teach there
+    locations.push("Budapest, Hungary");
+
     // adds the single location property from bio to the locations array
-    for (var loc in bio.contacts.locations) {
-      locations.push(bio.contacts.locations[loc]);
-    }
+    locations.push(bio.contacts.location);
 
     // iterates through school locations and appends each location to
     // the locations array

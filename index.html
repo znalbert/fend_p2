@@ -17,28 +17,38 @@
       <ul id="topContacts" class="flex-box"></ul>
     </header>
 
-      <!-- Work -->
-      <button class="heading" onclick="toggle('#work-container')"><h2>Work Experience</h2></button>
+    <div class="experience-row">
     
-      <iron-collapse id="work-container" tabindex="0">
-        <section id="workExperience"></section>
-      </iron-collapse>
-
-      <!-- Projects -->
-
-      <button class="heading" onclick="toggle('#projects-container')"><h2>Projects</h2></button>
-
-      <iron-collapse id="projects-container" tabindex="0">
-        <section id="projects"></section>
-      </iron-collapse>
+      <div class="work-exp">
+        <!-- Work -->
+        <button class="heading" onclick="toggle('#work-container')"><h2>Work Experience</h2></button>
       
-      <!-- Education -->
+        <iron-collapse id="work-container" tabindex="0">
+          <section id="workExperience"></section>
+        </iron-collapse>
+      </div>
 
-      <button class="heading" onclick="toggle('#education-container')"><h2>Education</h2></button>
+      <div class="project-exp">
+        <!-- Projects -->
 
-      <iron-collapse id="education-container" tabindex="0">
-        <section id="education"></section>
-      </iron-collapse>
+        <button class="heading" onclick="toggle('#projects-container')"><h2>Projects</h2></button>
+
+        <iron-collapse id="projects-container" tabindex="0">
+          <section id="projects"></section>
+        </iron-collapse>
+      </div>
+      
+      <div class="education-exp">  
+        <!-- Education -->
+
+        <button class="heading" onclick="toggle('#education-container')"><h2>Education</h2></button>
+
+        <iron-collapse id="education-container" tabindex="0">
+          <section id="education"></section>
+        </iron-collapse>
+      </div>
+
+    </div>
 
     <!-- Map -->
 
@@ -59,9 +69,6 @@
   function toggle(selector) {
     document.querySelector(selector).toggle();
   };
-  toggle('#work-container');
-  toggle('#projects-container');
-  toggle('#education-container');
   </script>
 
   <script type="text/javascript">

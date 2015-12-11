@@ -8,6 +8,13 @@
   padding: 5px;
 }
 
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 body,
 div,
 ul,
@@ -76,9 +83,19 @@ button {
   color: #fff;
 }
 
-.education-entry,
-.work-entry,
-.project-entry {
+.experience-row {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px;
+}
+
+[class*="-exp"] {
+  width: 33.33%;
+  padding: 5px;
+}
+
+[class*="-entry"] {
   padding: 10px 5%;
   overflow: hidden;
 }
