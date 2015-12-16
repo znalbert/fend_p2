@@ -2,7 +2,7 @@
 
 /* fontawesome */
 [class*="fontawesome-"]:before {
-  font-family: 'FontAwesome', sans-serif;
+  font-family: "FontAwesome", sans-serif;
   font-size: 1.5em;
   color: #f5ae23;
   padding: 5px;
@@ -147,7 +147,7 @@ a {
 .gray {
   background-color: #f3f3f3;
   padding-bottom: 10px;
-  clear:both;
+  clear: both;
 }
 
 .navy-bg {
