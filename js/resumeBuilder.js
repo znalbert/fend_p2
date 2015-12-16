@@ -187,7 +187,7 @@ projects.display = function() {
 
             proj.images.forEach(function(img) {
                 var ProjectImage = HTMLprojectImage.replace("%data%", img);
-                $(".project-entry:last").append(ProjectImage)
+                $(".project-entry:last").append(ProjectImage);
             });
         });
     }
@@ -252,15 +252,5 @@ education.display = function() {
 };
 
 education.display();
-
-function inName() {
-    names = bio.name.trim().split(" ");
-    console.log(names[1], names[0]);
-    names[1] = names[1].toUpperCase();
-    names[0] = names[0].slice(0, 1).toUpperCase() +
-        names[0].slice(1).toLowerCase();
-
-    return names[0] + " " + names[1];
-}
 
 $("#mapDiv").append(googleMap);
