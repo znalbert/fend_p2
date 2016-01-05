@@ -1,4 +1,4 @@
-# Finished Résumé project [here](http://demiror.github.io/fend_p2/)
+# Finished Résumé project [here](http://znalbert.github.io/fend_p2/)
 
 ## How do I complete this project?
 
