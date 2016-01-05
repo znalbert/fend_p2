@@ -7,9 +7,9 @@ var bio = {
     'contacts': {
         'mobile': '202-455-8679',
         'email': 'znalbert@gmail.com',
-        'github': 'demiror',
+        'github': 'znalbert',
         'linkedin': 'znalbert',
-        'twitter': '@demiror',
+        'twitter': '@',
         'location': 'Nashville, TN'
     },
     'skills': ['HTML/CSS', 'JavaScript', 'SQL', 'Teaching', 'Mandarin Chinese'],
