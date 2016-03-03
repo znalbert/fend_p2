@@ -5,15 +5,15 @@ var bio = {
         'Hawaii, now sporting a beard on a Tennesee farm, and looking forward' +
         ' to the next adventure.',
     'contacts': {
-        'mobile': '202-455-8679',
+        'location': 'Nashville, TN'
         'email': 'znalbert@gmail.com',
         'github': 'znalbert',
         'linkedin': 'znalbert',
         'twitter': '@',
-        'location': 'Nashville, TN'
+        'mobile': '202-455-8679',
     },
     'skills': ['HTML/CSS', 'JavaScript', 'SQL', 'Teaching', 'Mandarin Chinese'],
-    'biopic': 'images/prof.jpg'
+    'biopic': 'images/prof1.jpg'
 };
 
 bio.display = function() {

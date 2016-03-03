@@ -11,7 +11,7 @@ var HTMLlocation = '<li class="flex-item fontawesome-globe"><a href="http://maps
 var HTMLbioPic = '<img src="%data%" class="biopic" alt="Resume Profile Pic">';
 var HTMLwelcomeMsg = '<div class="welcome-message">%data%</div>';
 
-var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-box"></ul>';
+var HTMLskillsStart = '<br><h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills"></ul>';
 var HTMLskills = '<li class="flex-item skills">%data%</li>';
 
 var HTMLworkStart = '<div class="work-entry"></div>';
